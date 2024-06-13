@@ -1,5 +1,6 @@
 const config = {
     "name_server": "Server Name",
+    "name_developer": "Eikarna",
     "url": {
         "vhost": "YOUR_MEDIAFIRE_URL",
         "ptunnel": "YOUR_PTUNNEL_URL"
@@ -66,8 +67,17 @@ window.onload = function(e) {
                     targetElement.target = "_blank"
                     break
                 case "link-ptunnel":
-                    targetElement.innerHTML = config.url.ptunnel
+                    if (targetElement.classList.contains("btn2")) {
+                        targetElement.innerHTML = config.url.ptunnel
+                    } else {
+                        targetElement.href = config.url.ptunnel
+                    }
                     break
+                case "link-credit":
+                    if (targetElement.classList.contains("btn")) {
+                        var dt = new Date()
+                        targetElement.innerHTML = config.name_developer + " &copy; " + config.name_server + " - " + dt.getFullYear()
+                    }
             }
         }
     })
